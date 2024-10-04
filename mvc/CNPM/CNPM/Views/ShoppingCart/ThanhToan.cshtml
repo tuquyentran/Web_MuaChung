@@ -1,0 +1,139 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<body>
+    <div>
+        @Html.ActionLink("Quay lại giỏ hàng", "ShowCart")
+    </div>
+    <br />
+    <table class="table-bordered" style="width:1111px;">
+        <tr>
+            <th style="padding:10px">Địa chỉ giao hàng</th>
+        </tr>
+        <tr>
+
+            <td style="padding-left:10px">
+                <br />
+                <div style="display:flex;">
+                    Họ tên&emsp;&ensp;&emsp;&emsp;
+                    <input name="shipment_name" type="text" class="form-control control-width-normal" maxlength="50" value="">
+                </div><br />
+                <div style="display:flex;">
+                    Loại địa chỉ  &emsp;
+                    <input name="loaidc" type="text" autocorrect="off" autocapitalize="none" class="form-control control-width-normal" maxlength="50" value="">
+                </div><br />
+                <div style="display:flex;">
+                    Điện thoại&emsp;&emsp;
+                    <input id="shipment-phone" name="shipment_phone" type="text" class="form-control control-width-normal" maxlength="30" value="">
+                </div><br />
+            </td>
+
+            <td style="padding-left:10px">
+                <br />
+                <div style="display:flex;">
+                    Địa chỉ&emsp;&ensp;&emsp;&emsp;
+                    <input name="shipment_address" type="text" class="form-control control-width-normal" value="">
+                </div><br />
+                <div style="display:flex;">
+                    Tỉnh/Thành&emsp;&ensp;
+                    <select name="calc_shipping_provinces" required="">
+                        <option value="">Tỉnh / Thành phố</option>
+                    </select>
+                </div><br />
+                <div style="display:flex;">
+                    Quận/Huyện&emsp;
+                    <select name="calc_shipping_district" required="">
+                        <option value="">Quận / Huyện</option>
+                    </select>
+                </div><br />
+                <div style="display:flex;">
+                    Phường/Xã&emsp;&ensp;
+                    <select name="calc_shipping_ward" required="">
+                        <option value="">Phường / Xã</option>
+                    </select>
+                </div><br />
+            </td>
+        </tr>
+    </table>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js'></script>
+    <script>
+    //<![CDATA[
+        if (address_2 = localStorage.getItem('address_2_saved')) {
+            $('select[name="calc_shipping_district"] option').each(function () {
+                if ($(this).text() == address_2) {
+                    $(this).attr('selected', '')
+                }
+            })
+            $('input.billing_address_2').attr('value', address_2)
+        }
+        if (district = localStorage.getItem('district')) {
+            $('select[name="calc_shipping_district"]').html(district)
+            $('select[name="calc_shipping_district"]').on('change', function () {
+                var target = $(this).children('option:selected')
+                target.attr('selected', '')
+                $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+                address_2 = target.text()
+                $('input.billing_address_2').attr('value', address_2)
+                district = $('select[name="calc_shipping_district"]').html()
+                localStorage.setItem('district', district)
+                localStorage.setItem('address_2_saved', address_2)
+            })
+        }
+        $('select[name="calc_shipping_provinces"]').each(function () {
+            var $this = $(this),
+                stc = ''
+            c.forEach(function (i, e) {
+                e += +1
+                stc += '<option value=' + e + '>' + i + '</option>'
+                $this.html('<option value="">Tỉnh / Thành phố</option>' + stc)
+                if (address_1 = localStorage.getItem('address_1_saved')) {
+                    $('select[name="calc_shipping_provinces"] option').each(function () {
+                        if ($(this).text() == address_1) {
+                            $(this).attr('selected', '')
+                        }
+                    })
+                    $('input.billing_address_1').attr('value', address_1)
+                }
+                $this.on('change', function (i) {
+                    i = $this.children('option:selected').index() - 1
+                    var str = '',
+                        r = $this.val()
+                    if (r != '') {
+                        arr[i].forEach(function (el) {
+                            str += '<option value="' + el + '">' + el + '</option>'
+                            $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>' + str)
+                        })
+                        var address_1 = $this.children('option:selected').text()
+                        var district = $('select[name="calc_shipping_district"]').html()
+                        localStorage.setItem('address_1_saved', address_1)
+                        localStorage.setItem('district', district)
+                        $('select[name="calc_shipping_district"]').on('change', function () {
+                            var target = $(this).children('option:selected')
+                            target.attr('selected', '')
+                            $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')
+                            var address_2 = target.text()
+                            $('input.billing_address_2').attr('value', address_2)
+                            district = $('select[name="calc_shipping_district"]').html()
+                            localStorage.setItem('district', district)
+                            localStorage.setItem('address_2_saved', address_2)
+                        })
+                    } else {
+                        $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>')
+                        district = $('select[name="calc_shipping_district"]').html()
+                        localStorage.setItem('district', district)
+                        localStorage.removeItem('address_1_saved', address_1)
+                    }
+                })
+            })
+        })
+//]]></script>
+</body>
+<br />
+<a href="@Url.Action("PTThanhToan", "ShoppingCart")" class="btn btn-danger" style="float:right"> Thanh toán</a>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CNPM.Models.SanPham>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h1>DANH MỤC SẢN PHẨM</h1>
+
+<p>
+    @Html.ActionLink("Thêm sản phẩm mới", "Create")
+</p>
+
+<table class="table table-bordered" style="border-width:thick">
+    <tr>
+        <th> Tên sản phẩm </th>
+        <th> Mô tả </th>
+        <th> Giá </th>
+        <th> Hình </th>
+        <th> Loại sản phẩm </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoTa)
+            </td>
+            <td>
+                @String.Format("{0:,0,000 đ}", @item.GiaBan)
+            </td>
+            <td>
+                <img src="~/Content/images/@item.Hinh" alt="Product image" width="60" />
+                <br />
+                @Html.DisplayFor(modelItem => item.Hinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiSP.TenLoai)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaSP }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaSP }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.MaSP })
+            </td>
+        </tr>
+    }
+
+</table>

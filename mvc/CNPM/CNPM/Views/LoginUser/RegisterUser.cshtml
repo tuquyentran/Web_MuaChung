@@ -1,0 +1,36 @@
+﻿@model CNPM.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "RegisterUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<br />
+<h2>PHÂN QUYỀN</h2>
+@using (Html.BeginForm("RegisterUser", "LoginUser", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    if (ViewBag.ErrorRegister != null)
+    {
+        <p>@ViewBag.ErrorRegister</p>
+    }
+
+    <p>@Html.LabelFor(model => model.TenTK)</p>
+    <p>@Html.EditorFor(model => model.TenTK)</p>
+    <p>@Html.ValidationMessageFor(model => model.TenTK)</p>
+
+    <p>@Html.LabelFor(model => model.VaiTro)</p>
+    <p>@Html.EditorFor(model => model.VaiTro)</p>
+    <p>@Html.ValidationMessageFor(model => model.VaiTro)</p>
+
+    <p>@Html.LabelFor(model => Model.MK)</p>
+    <p>@Html.PasswordFor(model => model.MK)</p>
+    <p>@Html.ValidationMessageFor(model => model.MK)</p>
+    <input type="submit" value="Ghi" class="btn btn-primary" />
+}

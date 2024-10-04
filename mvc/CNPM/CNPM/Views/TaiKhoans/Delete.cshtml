@@ -1,0 +1,55 @@
+﻿@model CNPM.Models.TaiKhoan
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <script>
+        function Xoa() {
+            confirm("BẠN CÓ CHẮC MUỐN XOÁ TÀI KHOẢN NÀY?");
+        }
+    </script>
+</head>
+
+<h1>XOÁ TÀI KHOẢN</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên tài khoản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTK)
+        </dd>
+
+        <dt>
+            Vai trò
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VaiTro)
+        </dd>
+
+        <dt>
+            Mật khẩu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MK)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" onclick="Xoa();" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

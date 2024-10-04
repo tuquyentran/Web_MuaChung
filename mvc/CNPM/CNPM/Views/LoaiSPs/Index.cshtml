@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CNPM.Models.LoaiSP>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h1>LOẠI SẢN PHẨM</h1>
+
+<p>
+    @Html.ActionLink("Thêm loại sản phẩm", "Create")
+</p>
+<table class="table table-bordered" style="border-width:thick">
+    <tr>
+        <th>Mã loại </th>
+        <th>
+            Loại sản phẩm
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoai)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaLoai }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaLoai }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.MaLoai })
+            </td>
+        </tr>
+    }
+
+</table>

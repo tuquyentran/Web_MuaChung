@@ -1,0 +1,61 @@
+﻿@model CNPM.Models.SanPham
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1></h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        @*phần sản phẩm*@
+        <div>
+            <div>
+                <div class="product-if">
+                    <div class="img col-sm-6">
+                        <img class="img-responsive" src="~/Content/images/@Model.Hinh" alt="Product image" width="500" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h2>@Model.TenSP</h2>
+                    <h5>@Model.MoTa</h5>
+                    @*<h3>Loại sản phẩm: @Model.maloai</h3>*@
+                    <h3>
+                        @*@Model.GiaBan*@Giá: @String.Format("{0:,0,000 đ}", @Model.GiaBan)
+                    </h3>
+                    @*<a class="btn btn-info" href="/ShoppingCart/AddToCart/@Model.MaSP"> MUA NGAY </a>*@
+                    <a href="@Url.Action("ThanhToan", "ShoppingCart")" class="btn btn-danger"> MUA NGAY</a>
+                    <a href="/ShoppingCart/AddToCart/@Model.MaSP" class="btn btn-danger"> THÊM VÀO GIỎ HÀNG </a>
+                    @*<button class="btn btn-danger" value=""></button>*@
+                    @*<button class="btn btn-danger" value="THÊM VÀO GIỎ HÀNG"></button>*@
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div>
+                <div>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="" aria-controls="chitiet" role="tab" data-toggle="tab">Thông tin chi tiết</a></li>
+                        @*<li role="presentation"><a href="#diadiem" aria-controls="diadiem" role="tab" data-toggle="tab">Địa điểm sử dụng</a></li>*@
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="chitiet">
+                            <div>
+                                <p>
+                                   
+                                </p>
+                            </div>
+                        </div>
+                        @*<div role="tabpanel" class="tab-pane" id="điadiem">@Model.DiaChi</div>*@
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </dl>
+</div>

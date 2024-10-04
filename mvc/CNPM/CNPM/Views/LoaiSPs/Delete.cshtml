@@ -1,0 +1,47 @@
+﻿@model CNPM.Models.LoaiSP
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <script>
+        function Xoa() {
+            confirm("BẠN CÓ CHẮC MUỐN XOÁ LOẠI SẢN PHẨM NÀY?");
+        }
+    </script>
+</head>
+
+<h1>XOÁ LOẠI SẢN PHẨM</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoai)
+        </dd>
+
+        <dt>
+            Loại sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" onclick="Xoa();" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

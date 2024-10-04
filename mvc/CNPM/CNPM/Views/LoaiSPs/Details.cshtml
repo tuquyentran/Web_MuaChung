@@ -1,0 +1,32 @@
+﻿@model CNPM.Models.LoaiSP
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>LOẠI SẢN PHẨM</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoai)
+        </dd>
+
+        <dt>
+            Loại sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MaLoai }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

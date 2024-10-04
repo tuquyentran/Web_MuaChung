@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a2eb9e235b964d06a54094baf0fbb397" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="CNPMModel.CTHD" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.HoaDon" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.KhachHang" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.LoaiSP" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.SanPham" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CNPMModel.TaiKhoan" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="CNPMModel.FK__CTHD__mahd__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK__CTHD__masp__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK__HoaDon__makh__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="CNPMModel.FK__SanPham__maloai__29572725" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

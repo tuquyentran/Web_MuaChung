@@ -1,0 +1,57 @@
+﻿@model CNPM.Models.CTHD
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CHI TIẾT</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Địa chỉ giao
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoaDon.DiaChiGiao)
+        </dd>
+
+        <dt>
+            Mã loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanPham.maloai)
+        </dd>
+
+        <dt>
+            Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            Đơn giá
+        </dt>
+
+        <dd>
+            @String.Format("{0:,0,000 đ}", @Model.DonGia)
+        </dd>
+
+        <dt>
+            Thành tiền
+        </dt>
+
+        <dd>
+            @String.Format("{0:,0,000 đ}", @Model.ThanhTien)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,79 @@
+﻿@model CNPM.Models.HoaDon
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <script>
+        function Xoa() {
+            confirm("BẠN CÓ CHẮC MUỐN XOÁ ĐƠN HÀNG NÀY?");
+        }
+    </script>
+</head>
+
+<h1>XOÁ ĐƠN HÀNG</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.TenKH)
+        </dd>
+
+        <dt>
+            Ngày đặt
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+
+        <dt>
+            Ngày giao
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayGiao)
+        </dd>
+
+        <dt>
+            Địa chỉ giao
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiGiao)
+        </dd>
+
+        <dt>
+            Tổng tiền
+        </dt>
+
+        <dd>
+            @String.Format("{0:,0,000 đ}", @Model.TongTien)
+        </dd>
+
+        <dt>
+            Tình trạng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrang)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" onclick="Xoa();" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model CNPM.Models.TaiKhoan
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CHI TIẾT TÀI KHOẢN</h1>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            Tên tài khoản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTK)
+        </dd>
+
+        <dt>
+            <a href="~/Views/TaiKhoans/Details.cshtml">~/Views/TaiKhoans/Details.cshtml</a>
+            Vai trò
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VaiTro)
+        </dd>
+
+        <dt>
+            Mật khẩu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MK)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

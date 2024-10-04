@@ -1,0 +1,233 @@
+﻿    * 
+    body{
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar {
+        background-color: rgb(255,241,247) !important;
+        display: flex;
+    }
+
+.header {
+    width: 2000px;
+}
+
+    .ngan {
+    border-right: 1px solid;
+    opacity:50%;
+    height:25px;
+    outline:0
+}
+.ngan2 {
+    border-right: 1px solid;
+    opacity: 10%;
+    height: 50px;
+    outline: 0
+}
+
+.header-top {
+    height:25px;
+    background-color: rgb(255 214 246);
+}
+.header-topright{
+    padding-right:200px;
+    float:right;
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    background-color: rgb(255 214 246);
+}
+.header-topleft {
+    padding-left: 200px;
+    float: left;
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    background-color: rgb(255 214 246);
+}
+.header-bot {
+    justify-content: center;
+    padding:5px
+}
+
+
+    .navbar li a {
+        color: rgb(255 0 109) !important;
+    }
+
+    .navbar ul > li {
+        list-style: none;
+        padding: 0px 15px;
+    }
+
+    .navbar li {
+        position: relative;
+    }
+
+        .navbar li ul {
+            background-color: #ffd6e8;
+            padding: 0px 10px;
+            display: none;
+            position: absolute;
+            width: 500px;
+        }
+
+        .navbar li:hover > ul {
+            display: block;
+        }
+
+        .navbar li > ul a {
+            padding: 10px;
+            padding-right: 30px;
+        }
+    
+    .navitem{
+
+    }
+
+    #main-menu {
+        justify-content: space-between;
+        display: flex;  
+    }
+
+        #main-menu a:hover {
+            font-weight: 600
+        }
+
+        #main-menu ul.sub-menu li:hover a {
+            font-weight: bold;
+        }
+
+        #main-menu ul.sub-menu li:last-child a {
+            border-bottom: none;
+        }
+
+        #main-menu > li.has-child::after {
+            content: "\f107";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: rgb(255 0 109);
+            position: absolute;
+            top: 2px;
+            right: 0px;
+            padding: 14px 5px;
+            display: inline-block;
+            cursor: pointer
+        }
+
+    .sub-menu {
+        max-width: 200px;
+    }
+
+    #toggle {
+        margin-top: -8px;
+        color: rgb(255 0 109);
+        outline: 0;
+        font-size: 20px
+    }
+
+
+    @media screen and (max-width: 768px) {
+        #main-menu {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #toggle {
+            display: block
+        }
+
+        .header-bot {
+            display: none
+        }
+    }
+
+    .search {
+        position: relative;
+        border-radius: 40px;
+        background-color: #fff;
+        width: 450px ;
+    }
+
+        .search input {
+            background-color: #fff;
+            border: none;
+            border-radius: 12x;
+            font-size: 12px;
+            line-height: 14px;
+            height: 40px;
+            padding: 20px 10px 10px 0px;
+            width: calc(100% - 35px);
+            outline: 0;
+            top:15px
+        }
+
+    input, select, textarea {
+        max-width: 400px;
+    }
+
+    .search button {
+        background-color: transparent;
+        position: absolute;
+        top: 12px;
+        border: none;
+        outline: 0;
+        right: -80px
+    }
+
+.cart button {
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+    padding: 0px 10px;
+    margin: 4px 5px;
+}
+
+
+ul.dropdown-cart {
+    min-width: 250px;
+}
+
+    ul.dropdown-cart li .item {
+        display: block;
+        padding: 3px 10px;
+        margin: 3px 0;
+    }
+
+        ul.dropdown-cart li .item:hover {
+            background-color: #f3f3f3;
+        }
+
+        ul.dropdown-cart li .item:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: "";
+            clear: both;
+            height: 0;
+        }
+
+    ul.dropdown-cart li .item-left {
+        float: left;
+    }
+
+        ul.dropdown-cart li .item-left img, ul.dropdown-cart li .item-left span.item-info {
+            float: left;
+        }
+
+        ul.dropdown-cart li .item-left span.item-info {
+            margin-left: 10px;
+        }
+
+            ul.dropdown-cart li .item-left span.item-info span {
+                display: block;
+            }
+
+    ul.dropdown-cart li .item-right {
+        float: right;
+    }
+
+        ul.dropdown-cart li .item-right button {
+            margin-top: 14px;
+        }
